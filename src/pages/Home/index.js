@@ -13,7 +13,12 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const { listData } = useData()
+  // eslint-disable-next-line no-console
+  console.log(listData)
+  // listData undefined
+  const last = listData && listData.events && listData.events.length > 0 ? listData.events[listData.events.length - 1] : null;
+
   return <>
     <header>
       <Menu />
@@ -115,15 +120,20 @@ const Page = () => {
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+        <h3>Notre dernière prestation</h3>
+        {last && (
+          <EventCard
+            
+            imageSrc={last?.cover}
+            imageAlt={last?.description}
+            date={new Date(last?.date)}
+            title={last?.title}
+            small
+            label="boom"
+          />
+        )}
       </div>
+      
       <div className="col contact">
         <h3>Contactez-nous</h3>
         <address>45 avenue de la République, 75000 Paris</address>
