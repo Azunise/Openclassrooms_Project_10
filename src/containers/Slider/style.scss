@@ -38,6 +38,14 @@
         min-width: 0;
         color: $primary;
       }
+
+      &--hide {
+        display: none;
+      }
+
+      &--display {
+        opacity: 1;
+      }
     }
     &__description {
       left: 0;
