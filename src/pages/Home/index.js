@@ -13,11 +13,11 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const { listData } = useData()
+  const { data } = useData()
   // eslint-disable-next-line no-console
-  console.log(listData)
-  // listData undefined
-  const last = listData && listData.events && listData.events.length > 0 ? listData.events[listData.events.length - 1] : null;
+  console.log('data', data)
+  // data undefined
+  const last = data && data.events && data.events.length > 0 ? data.events[data.events.length - 1] : null;
 
   return <>
     <header>
