@@ -30,8 +30,7 @@ export const DataProvider = ({ children }) => {
     if (data) return;
     getData();
   });
-  // eslint-disable-next-line no-console
-  console.log('data', data)
+  
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values

@@ -15,8 +15,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const { data } = useData()
-  // eslint-disable-next-line no-console
-  console.log('data', data)
+  
   // data undefined
   const last = data && data.events && data.events.length > 0 ? data.events[data.events.length - 1] : null;
 

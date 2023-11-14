@@ -60,17 +60,12 @@ const EventList = () => {
             ))}
           </div>
           <div className="Pagination">
-            {[...Array(pageNumber || 0)].map((_, n) => {
-              // eslint-disable-next-line no-console
-              console.log('n', n,)
-              // eslint-disable-next-line no-console
-              console.log('currentPage', currentPage,)
-              return (
+            {[...Array(pageNumber || 0)].map((_, n) => (
               // eslint-disable-next-line react/no-array-index-key
               <a key={n} href="#events" style={{textDecoration: (n+1)===currentPage ? "underline" : "none"}}   onClick={() => setCurrentPage(n + 1)}>
                 {n + 1}
-              </a>)
-})}
+              </a>
+            ))}
           </div>
         </>
       )}
