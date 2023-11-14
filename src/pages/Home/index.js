@@ -10,6 +10,7 @@ import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
+import ModalEvent from "../../containers/ModalEvent";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
@@ -121,16 +122,25 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
+
+
+        
+
+
         {last && (
-          <EventCard
-            
-            imageSrc={last?.cover}
-            imageAlt={last?.description}
-            date={new Date(last?.date)}
-            title={last?.title}
-            small
-            label="boom"
-          />
+          <Modal key={last?.id} Content={<ModalEvent event={last} />}>
+            {({ setIsOpened }) => (
+              <EventCard
+                onClick={() => setIsOpened(true)}
+                imageSrc={last?.cover}
+                imageAlt={last?.description}
+                date={new Date(last?.date)}
+                title={last?.title}
+                small
+                label="boom"
+              />
+            )}
+          </Modal>
         )}
       </div>
       
